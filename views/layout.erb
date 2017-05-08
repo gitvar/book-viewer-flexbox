@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= @title %></title>
+    <!-- <link rel="stylesheet" href="/stylesheets/book_viewer.css"> -->
+    <link href="<%= url('/stylesheets/book_viewer.css') %>" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="heading-container">
+      <form action="">
+        <div class="heading-block">
+          <h1><%= @title %></h1>
+        </div>
+        <div class="heading-block">
+          <h2>by <%= @author %></h2>
+        </div>
+      </form>
+    </div>
+
+    <div class="column-layout">
+
+      <div class="toc">
+        <h3>Table of Contents</h3>
+        <ol>
+          <% @table_of_contents.each_with_index do |chapter, index| %>
+          <li>
+            <a href="/chapters/<%= index + 1 %>"><%= chapter %><a/>
+          </li>
+          <% end %>
+        </ol>
+        <div class="search">
+          <a href="/search?query=">Search</a>
+        </div>
+      </div>
+
+      <div class="main-column">
+        <%= yield %>
+      </div>
+
+    </div>
+  </body>
+</html>

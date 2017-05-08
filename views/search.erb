@@ -1,0 +1,40 @@
+<!-- views/search.erb -->
+<h2>Search</h2>
+<div>
+  <form action="/search" method="get">
+    <input name="query" value="<%= params[:query] %>"/>
+    <button type="submit">Search</button>
+  </form>
+
+  <% if params[:query] %>
+  <% if @results.empty? %>
+  <p>Sorry, no matches were found.</p>
+<% else %>
+  <h2></h2>
+  <h2>Results for '<%= params[:query]%>'</h2>
+  <ol>
+    <% @results.each do |result| %>
+    <!--  If @results = [{:number => 3, :name => "A Case of Identity"}]-->
+    <!--  Thus, for @results[0], result[:number] = 3 and, -->
+    <!-- result[:name] = "A Case of Identity" -->
+    <li>
+      <h4><%= result[:name] %></h4>
+      <ol>
+        <% result[:paragraphs].each do |index, paragraph| %>
+        <li>
+          <!-- <a href="/chapters/<%= result[:number] %>#paragraph<%= index %>"><%= highlight(paragraph, params[:query]) %>
+          </a> -->
+          <a href="/chapters/<%= result[:number] %>?query=<%= params[:query] %>#paragraph<%= index %>"><%= highlight(paragraph, params[:query]) %>
+          </a>
+        </li>
+        <% end %>
+      </ol>
+    </li>
+    <% end %>
+  </ol>
+  <% end %>
+  <% end %>
+</div>
+<div>
+  <a href="#"></a>
+</div>
