@@ -4,7 +4,7 @@ require "tilt/erubis"
 
 before do
   @title = "The Adventures of Sherlock Holmes"
-  @author = "Sir Arthur Conan Doyle"
+  @author = "Sir Arthur Ignatius Conan Doyle"
   @table_of_contents = File.readlines("data/toc.txt")
 end
 
