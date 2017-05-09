@@ -33,9 +33,10 @@ h1, h2, h3 {
   justify-content: center;
 }
 
-.heading-block {
+
+/*.heading-block {
   flex: 1;
-}
+}*/
 
 
 /*.form-row {
@@ -70,6 +71,10 @@ h1, h2, h3 {
   background-color: #cdf1c3;
   flex: 3;
   order: 2;
+}
+
+.toc-heading {
+  text-align: center;
 }
 
 .toc {
